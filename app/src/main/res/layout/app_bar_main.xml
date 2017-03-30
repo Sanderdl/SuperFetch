@@ -23,12 +23,18 @@
 
     <include layout="@layout/content_main" />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_gravity="bottom"
+        android:id="@+id/fab_anchor" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
-        app:layout_anchor="@id/block_below"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
+        app:layout_anchor="@id/fab_anchor"
+        app:layout_anchorGravity="top|right|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_add_white_24dp"
         app:fabSize="normal" />

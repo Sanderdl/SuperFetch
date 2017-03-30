@@ -46,9 +46,9 @@
                 android:layout_marginBottom="2dp"
                 android:layout_width="wrap_content"
                 android:layout_below="@id/txt_total"
-                android:layout_height="4dp"
                 android:background="@color/white"
-                android:id="@+id/hr_bar" />
+                android:id="@+id/hr_bar"
+                android:layout_height="3dp" />
 
             <TextView
                 android:text="Product worth:"

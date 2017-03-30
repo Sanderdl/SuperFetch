@@ -9,5 +9,137 @@
     <android.support.v7.widget.CardView
         app:cardElevation="12dp"
         style="@style/CardStyle">
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@mipmap/albertheijn" />
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_sectionTitle"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="2 Products"
+                        android:textColor="@color/midgray" />
+
+                    <View
+                        android:id="@+id/hr_bar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/txt_sectionTitle"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/product_worth2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/hr_bar2"
+                        android:text="Product worth:"
+                        android:textColor="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/earnings2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_worth2"
+                        android:text="Earnings:"
+                        android:textColor="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/val_worth2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/hr_bar2"
+                        android:text="€ 12,30"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/val_earnings2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/val_worth2"
+                        android:text="€ 3,00"
+                        android:textColor="@color/midgray" />
+
+
+                    <TextView
+                        android:id="@+id/txt_userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:text="By Sander"
+                        android:textSize="10dp"
+                        android:textColor="@color/lightgray" />
+
+                    <TextView
+                        android:id="@+id/txt_detailedInfo"
+                        android:textStyle="bold"
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="Detailed Info"
+                        android:textColor="@color/lightgray" />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/midgray"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:layout_marginRight = "-7dp"
+                    android:layout_marginBottom="-7dp"
+
+
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

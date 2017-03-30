@@ -77,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // go to home
+            intent = new Intent(this,MainActivity.class);
         } else if (id == R.id.nav_groceries) {
             intent = new Intent(this,GroceriesActivity.class);
         } else if (id == R.id.nav_orders) {

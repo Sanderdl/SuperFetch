@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "531920886020",
+    "firebase_url": "https://superfetch-616a7.firebaseio.com",
+    "project_id": "superfetch-616a7",
+    "storage_bucket": "superfetch-616a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531920886020:android:4d49596f2ef95480",
+        "android_client_info": {
+          "package_name": "fetch.supermarkt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531920886020-200ae6v105jhd18uj8kj06alopo24dep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa5tj3cAdF6_2b6AVtP3dIIW9mSgo__Q0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

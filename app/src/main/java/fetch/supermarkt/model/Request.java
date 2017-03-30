@@ -9,12 +9,14 @@ public class Request {
     private double worth;
     private double earnings;
     private String location;
+    private String userName;
 
-    public Request(int productCount, double worth, double earnings, String location) {
+    public Request(int productCount, double worth, double earnings, String location, String userName) {
         this.productCount = productCount;
         this.worth = worth;
         this.earnings = earnings;
         this.location = location;
+        this.userName = userName;
     }
 
     public int getProductCount() {
@@ -31,5 +33,9 @@ public class Request {
 
     public String getLocation() {
         return location;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }

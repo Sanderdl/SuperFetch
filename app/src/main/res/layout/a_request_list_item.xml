@@ -53,7 +53,6 @@
                             android:layout_weight="1" />
 
                         <TextView
-                            android:id="@+id/txt_sectionTitle"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -130,7 +129,6 @@
                             android:text="By "
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView2"
                             android:layout_weight="1"
                             android:textSize="10sp"/>
 

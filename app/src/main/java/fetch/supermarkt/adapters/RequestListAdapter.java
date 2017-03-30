@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -31,10 +32,18 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
             v = vi.inflate(R.layout.a_request_list_item, null);
         }
 
-        Request p = getItem(position);
+        Request r = getItem(position);
 
-        if (p != null) {
+        if (r != null) {
+            TextView count = (TextView)v.findViewById(R.id.txt_count);
+            TextView worth = (TextView)v.findViewById(R.id.val_worth2);
+            TextView earnings = (TextView)v.findViewById(R.id.val_earnings2);
+            TextView userName = (TextView)v.findViewById(R.id.txt_userName);
 
+            count.setText(String.valueOf(r.getProductCount()));
+            worth.setText("€ "+String.valueOf(r.getWorth()));
+            earnings.setText("€ "+String.valueOf(r.getEarnings()));
+            userName.setText(r.getUserName());
         }
         return v;
     }

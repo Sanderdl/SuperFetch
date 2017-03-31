@@ -5,10 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
+import fetch.supermarkt.MainActivity;
 import fetch.supermarkt.R;
 import fetch.supermarkt.model.Request;
 
@@ -18,8 +22,11 @@ import fetch.supermarkt.model.Request;
 
 public class RequestListAdapter extends ArrayAdapter<Request> {
 
+    private Context mContext;
+
     public RequestListAdapter(Context context, int resource, List<Request> objects) {
         super(context, resource, objects);
+        this.mContext = context;
     }
 
     @Override
@@ -32,20 +39,39 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
             v = vi.inflate(R.layout.a_request_list_item, null);
         }
 
-        Request r = getItem(position);
+        final Request r = getItem(position);
 
         if (r != null) {
             TextView count = (TextView)v.findViewById(R.id.txt_count);
             TextView worth = (TextView)v.findViewById(R.id.val_worth2);
             TextView earnings = (TextView)v.findViewById(R.id.val_earnings2);
             TextView userName = (TextView)v.findViewById(R.id.txt_userName);
+            CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
+
+            NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+            String strWorth = formatter.format(r.getWorth());
+            String strEarnings = formatter.format(r.getDeliveryFee());
 
             count.setText(String.valueOf(r.getProductCount()));
-            worth.setText("€ "+String.valueOf(r.getWorth()));
-            earnings.setText("€ "+String.valueOf(r.getDeliveryFee()));
+            worth.setText(strWorth);
+            earnings.setText(strEarnings);
             userName.setText(r.getRequesterName());
+
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(mContext instanceof MainActivity){
+                        if (isChecked)
+                            ((MainActivity)mContext).addCheckedRequest(position);
+                        else
+                            ((MainActivity)mContext).removeCheckedRequest(r);
+                    }
+                }
+            });
         }
         return v;
     }
+
 
 }

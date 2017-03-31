@@ -1,12 +1,14 @@
 package fetch.supermarkt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +17,28 @@ import fetch.supermarkt.model.Request;
 
 public class MainActivity extends BaseActivity {
 
+    private TextView tvWorth;
+    private TextView tvEarnings;
+
     private ListView requestList;
+    private List<Request> allRequests;
+    private List<Request> checkedRequests;
+
+    private double productsWorth = 0.00;
+    private double earnings = 0.00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         requestList = (ListView) findViewById(R.id.list_home);
+        tvWorth = (TextView) findViewById(R.id.val_worth);
+        tvEarnings = (TextView) findViewById(R.id.val_earnings);
 
-        List<Request> allRequests = new ArrayList<>();
+        allRequests = new ArrayList<>();
+        checkedRequests = new ArrayList<>();
+
+        updateValues();
 
         Request r = new Request(2,10.50,3.22,"Fontys jonguh","Sander","AH");
         Request r1 = new Request(4,11.50,3.22,"Fontys jonguh","Stef","AH");
@@ -42,15 +57,46 @@ public class MainActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                goToAddRequest();
             }
         });
 
     }
 
+    private void goToAddRequest(){
+        Intent intent = new Intent(this, NewRequestActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_main;
+    }
+
+    public void addCheckedRequest(int index){
+        checkedRequests.add(allRequests.get(index));
+        updateValues();
+    }
+
+    public void removeCheckedRequest(Request toRemove){
+        checkedRequests.remove(toRemove);
+        updateValues();
+    }
+
+    private void updateValues(){
+        productsWorth = 0.00;
+        earnings = 0.00;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+        for(Request r : checkedRequests){
+            productsWorth += r.getWorth();
+            earnings += r.getDeliveryFee();
+        }
+
+        String strWorth = formatter.format(productsWorth);
+        String strEarnings = formatter.format(earnings);
+
+        tvEarnings.setText(strEarnings);
+        tvWorth.setText(strWorth);
     }
 }

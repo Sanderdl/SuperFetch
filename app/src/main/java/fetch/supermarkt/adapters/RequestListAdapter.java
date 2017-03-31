@@ -42,8 +42,8 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
 
             count.setText(String.valueOf(r.getProductCount()));
             worth.setText("€ "+String.valueOf(r.getWorth()));
-            earnings.setText("€ "+String.valueOf(r.getEarnings()));
-            userName.setText(r.getUserName());
+            earnings.setText("€ "+String.valueOf(r.getDeliveryFee()));
+            userName.setText(r.getRequesterName());
         }
         return v;
     }

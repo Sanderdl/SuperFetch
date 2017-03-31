@@ -25,10 +25,10 @@ public class MainActivity extends BaseActivity {
 
         List<Request> allRequests = new ArrayList<>();
 
-        Request r = new Request(2,10.50,3.22,"Fontys jonguh","Sander");
-        Request r1 = new Request(4,11.50,3.22,"Fontys jonguh","Stef");
-        Request r2 = new Request(3,12.50,3.22,"Fontys jonguh","Luuk");
-        Request r3 = new Request(5,20.50,3.22,"Fontys jonguh","Evert");
+        Request r = new Request(2,10.50,3.22,"Fontys jonguh","Sander","AH");
+        Request r1 = new Request(4,11.50,3.22,"Fontys jonguh","Stef","AH");
+        Request r2 = new Request(3,12.50,3.22,"Fontys jonguh","Luuk","AH");
+        Request r3 = new Request(5,20.50,3.22,"Fontys jonguh","Evert","AH");
 
         allRequests.add(r);
         allRequests.add(r1);

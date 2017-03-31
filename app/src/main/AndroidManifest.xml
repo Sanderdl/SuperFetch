@@ -28,6 +28,7 @@
         <activity
             android:name=".NewRequestActivity"
             android:label="@string/new_order"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance">
         </activity>

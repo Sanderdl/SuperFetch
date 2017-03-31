@@ -15,10 +15,13 @@
     <string name="product_worth">Products worth:</string>
     <string name="earnings">Earnings:</string>
     <string name="fetch_request">Fetch Request</string>
-    <string name="euro">€</string>
+    <string name="euro">€ </string>
     <string name="by">By</string>
     <string name="zero">0</string>
     <string name="detailed_info">Detailed info</string>
     <string name="add_request">Add request</string>
     <string name="delivery_fee">Delivery fee</string>
+    <string name="delivery_location">Delivery Location</string>
+    <string name="select_store">Select Store</string>
+    <string name="add_product">Add product</string>
 </resources>

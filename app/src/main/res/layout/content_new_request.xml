@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="fetch.supermarkt.GroceriesActivity"
+    tools:showIn="@layout/app_bar_new_request">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardStyle"
+        android:layout_height="0dp"
+        app:cardElevation="12dp"
+        android:layout_weight="0.75">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/activity_top_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_fee"
+                android:textColor="@color/midgray"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_delivery_fee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        style="@style/CardStyle"
+        android:layout_height="0dp"
+        app:cardElevation="12dp"
+        android:layout_weight="0.75"/>
+
+    <android.support.v7.widget.CardView
+        style="@style/CardStyle"
+        android:layout_height="0dp"
+        app:cardElevation="12dp"
+        android:layout_weight="0.75"/>
+
+    <android.support.v7.widget.CardView
+        style="@style/CardStyle"
+        android:layout_height="0dp"
+        app:cardElevation="12dp"
+        android:layout_weight="1.5"/>
+
+    <LinearLayout
+        android:layout_weight="0.75"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_top_margin"
+        android:paddingBottom="@dimen/activity_top_margin"
+        android:id="@+id/block_below"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/total"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_total"
+                android:textColor="@color/white"
+                />
+            <View
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/txt_total"
+                android:background="@color/white"
+                android:id="@+id/hr_bar"
+                android:layout_height="3dp" />
+
+            <TextView
+                android:text="@string/product_worth"
+                android:textColor="@color/white"
+                android:layout_below="@id/hr_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_worth" />
+
+            <TextView
+                android:text="@string/earnings"
+                android:textColor="@color/white"
+                android:layout_below="@id/product_worth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/earnings" />
+
+            <TextView
+                android:text="@string/euro"
+                android:textColor="@color/white"
+                android:layout_below="@id/hr_bar"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/val_worth"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:text="@string/euro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/val_earnings"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/white"
+                android:layout_below="@id/val_worth"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_fetch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/add_request" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

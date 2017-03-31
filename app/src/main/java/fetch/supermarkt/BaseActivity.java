@@ -83,7 +83,7 @@ public abstract class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_orders) {
 
         } else if (id == R.id.nav_add_order) {
-
+            intent = new Intent(this,NewRequestActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -25,6 +25,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance">
         </activity>
+        <activity
+            android:name=".NewRequestActivity"
+            android:label="@string/new_order"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance">
+        </activity>
     </application>
 
 </manifest>

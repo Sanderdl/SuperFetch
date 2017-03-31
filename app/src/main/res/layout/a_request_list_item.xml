@@ -7,23 +7,23 @@
     android:weightSum="1">
 
     <android.support.v7.widget.CardView
-        app:cardElevation="12dp"
-        style="@style/CardStyle">
+        style="@style/CardStyle"
+        app:cardElevation="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="10dp"
-            >
+            android:padding="10dp">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/img_store"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="2"
+                android:contentDescription="@string/app_name"
+                android:orientation="vertical"
                 app:srcCompat="@mipmap/albertheijn" />
 
             <LinearLayout
@@ -34,32 +34,31 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1">
 
                     <LinearLayout
-                        android:orientation="horizontal"
+                        android:id="@+id/sectionTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/sectionTitle">
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:text="2"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/txt_count"
-                            android:textColor="@color/midgray"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="Products"
+                            android:layout_weight="1"
+                            android:text="@string/zero"
                             android:textColor="@color/midgray"
-                            android:layout_weight="30" />
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="30"
+                            android:text="@string/products"
+                            android:textColor="@color/midgray"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <View
@@ -76,7 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/hr_bar2"
-                        android:text="Product worth:"
+                        android:text="@string/product_worth"
                         android:textColor="@color/midgray" />
 
                     <TextView
@@ -84,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/product_worth2"
-                        android:text="Earnings:"
+                        android:text="@string/earnings"
                         android:textColor="@color/midgray" />
 
                     <TextView
@@ -93,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_below="@id/hr_bar2"
-                        android:text="€ 12,30"
+                        android:text="@string/euro"
                         android:textAlignment="textEnd"
                         android:textColor="@color/midgray" />
 
@@ -103,50 +102,47 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_below="@id/val_worth2"
-                        android:text="€ 3,00"
+                        android:text="@string/euro"
                         android:textColor="@color/midgray" />
 
 
                     <TextView
                         android:id="@+id/txt_detailedInfo"
-                        android:textStyle="bold"
-                        android:textSize="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:text="Detailed Info"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/detailed_info"
+                        android:textAlignment="textEnd"
                         android:textColor="@color/lightgray"
-                        android:layout_weight="1" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true">
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:text="By "
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textSize="10sp"/>
+                            android:text="@string/by"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/txt_userName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentLeft="true"
-                            android:text="Sander"
-                            android:textSize="10sp"
+                            android:layout_weight="30"
+                            android:text="@string/app_name"
                             android:textColor="@color/lightgray"
-                            android:layout_weight="30" />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
                 </RelativeLayout>
-
 
 
             </LinearLayout>
@@ -160,12 +156,12 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/midgray"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:checked="false"
-                    android:layout_marginRight = "-7dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginBottom="-7dp"
+                    android:layout_marginEnd="-7dp"
+                    android:checked="false"
+                    android:textColor="@color/midgray"
 
 
                     />

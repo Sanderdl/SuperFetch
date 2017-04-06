@@ -10,223 +10,230 @@
     tools:context="fetch.supermarkt.GroceriesActivity"
     tools:showIn="@layout/app_bar_new_request">
 
-    <android.support.v7.widget.CardView
-        style="@style/CardStyle"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:cardElevation="12dp"
-        android:layout_weight="0.75">
+        android:layout_weight="8.5"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/activity_top_margin"
-            android:orientation="vertical">
+        <android.support.v7.widget.CardView
+            style="@style/CardStyle"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delivery_fee"
-                android:textColor="@color/midgray"
-                android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            app:cardElevation="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/activity_top_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivery_location"
+                    android:textColor="@color/midgray"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/input_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/delivery_location"
+                    android:inputType="text" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            style="@style/CardStyle"
+            android:layout_height="wrap_content"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_margin"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="@string/euro"
-                    android:textSize="18sp" />
+                    android:text="@string/delivery_fee"
+                    android:textColor="@color/midgray"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/input_delivery_fee"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="30"
-                    android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/euro"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/input_delivery_fee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
             </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        style="@style/CardStyle"
-        android:layout_height="0dp"
-        app:cardElevation="12dp"
-        android:layout_weight="0.75">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/activity_top_margin">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/midgray"
-                android:textStyle="bold"
-                android:text="@string/delivery_location" />
-
-            <EditText
-                android:id="@+id/input_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/delivery_location"
-                android:inputType="text" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        style="@style/CardStyle"
-        android:layout_height="0dp"
-        app:cardElevation="12dp"
-        android:layout_weight="0.75">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/activity_top_margin"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/select_store"
-                android:textColor="@color/midgray"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        style="@style/CardStyle"
-        android:layout_height="wrap_content"
-        app:cardElevation="12dp"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/activity_top_margin"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_product"
-                android:textColor="@color/midgray"
-                android:textStyle="bold" />
+        <android.support.v7.widget.CardView
+            style="@style/CardStyle"
+            android:layout_height="wrap_content"
+            app:cardElevation="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_margin"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/input_product"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/add_product"
-                    android:inputType="textPersonName" />
+                    android:text="@string/select_store"
+                    android:textColor="@color/midgray"
+                    android:textStyle="bold" />
 
-                <ImageButton
-                    android:id="@+id/btn_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_add_black_24dp" />
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            style="@style/CardStyle"
+            android:layout_height="wrap_content"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_product"
+                    android:textColor="@color/midgray"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/input_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/add_product"
+                        android:inputType="textPersonName" />
+
+                    <ImageButton
+                        android:id="@+id/btn_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_add_black_24dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="0.75"
-        android:orientation="horizontal"
+        android:id="@+id/block_below"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:background="@color/colorPrimary"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_top_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_top_margin"
-        android:paddingBottom="@dimen/activity_top_margin"
-        android:id="@+id/block_below"
-        android:baselineAligned="false">
+        android:paddingTop="@dimen/activity_top_margin">
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="@string/total"
-                android:layout_alignParentStart="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_total"
-                android:textColor="@color/white"
-                />
-            <View
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="wrap_content"
-                android:layout_below="@id/txt_total"
-                android:background="@color/white"
-                android:id="@+id/hr_bar"
-                android:layout_height="3dp" />
-
-            <TextView
-                android:text="@string/product_worth"
-                android:textColor="@color/white"
-                android:layout_below="@id/hr_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/product_worth" />
-
-            <TextView
-                android:text="@string/earnings"
-                android:textColor="@color/white"
-                android:layout_below="@id/product_worth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/earnings" />
-
-            <TextView
-                android:text="@string/euro"
-                android:textColor="@color/white"
-                android:layout_below="@id/hr_bar"
-                android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/val_worth"
-                android:textAlignment="textEnd" />
-
-            <TextView
-                android:text="@string/euro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/val_earnings"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/white"
-                android:layout_below="@id/val_worth"/>
-        </RelativeLayout>
-        <RelativeLayout
             android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="@string/total"
+                android:textColor="@color/white" />
+
+            <View
+                android:id="@+id/hr_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:layout_below="@id/txt_total"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/product_worth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hr_bar"
+                android:text="@string/product_worth"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/earnings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_worth"
+                android:text="@string/earnings"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/val_worth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/hr_bar"
+                android:text="@string/euro"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/val_earnings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/val_worth"
+                android:text="@string/euro"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <Button

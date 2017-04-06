@@ -13,9 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fetch.supermarkt.adapters.RequestListAdapter;
+import fetch.supermarkt.database.FirebaseDB;
+import fetch.supermarkt.database.IUpdatable;
 import fetch.supermarkt.model.Request;
 
-public class MainActivity extends BaseActivity {
+
+public class MainActivity extends BaseActivity implements IUpdatable {
 
     private TextView tvWorth;
     private TextView tvEarnings;
@@ -39,19 +42,10 @@ public class MainActivity extends BaseActivity {
         checkedRequests = new ArrayList<>();
 
         updateValues();
+        update();
 
-        Request r = new Request(2,10.50,3.22,"Fontys jonguh","Sander","AH");
-        Request r1 = new Request(4,11.50,3.22,"Fontys jonguh","Stef","AH");
-        Request r2 = new Request(3,12.50,3.22,"Fontys jonguh","Luuk","AH");
-        Request r3 = new Request(5,20.50,3.22,"Fontys jonguh","Evert","AH");
-
-        allRequests.add(r);
-        allRequests.add(r1);
-        allRequests.add(r2);
-        allRequests.add(r3);
-
-        ListAdapter listAdapter = new RequestListAdapter(this, R.layout.a_request_list_item, allRequests);
-        requestList.setAdapter(listAdapter);
+        allRequests = FirebaseDB.instance.getRequestList();
+        FirebaseDB.instance.registerUpdatable("main",this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -98,5 +92,12 @@ public class MainActivity extends BaseActivity {
 
         tvEarnings.setText(strEarnings);
         tvWorth.setText(strWorth);
+    }
+
+    @Override
+    public void update(){
+        allRequests = FirebaseDB.instance.getRequestList();
+        ListAdapter listAdapter = new RequestListAdapter(this, R.layout.a_request_list_item, allRequests);
+        requestList.setAdapter(listAdapter);
     }
 }

@@ -23,6 +23,7 @@ public class Request {
     private boolean orderDelivered;
     private ArrayList<Product> products;
 
+    public Request(){}
 
     public Request(int productCount, double worth, double deliveryFee, String location, String requesterName, String store) {
         this.productCount = productCount;
@@ -31,8 +32,6 @@ public class Request {
         this.location = location;
         this.requesterName = requesterName;
         this.store = store;
-
-        addRequestToFirebase(this);
     }
 
     public int getProductCount() {
@@ -67,7 +66,7 @@ public class Request {
         this.requestId = requestId;
     }
 
-    public void addRequestToFirebase(Request r) {
+    public void addRequestToFirebase() {
         //Create Firebase reference
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -75,9 +74,9 @@ public class Request {
         DatabaseReference mRef = database.getReference().child("requests").push();
 
         //Get this key and assign it to the object
-        r.setRequestId(mRef.getKey());
+        this.setRequestId(mRef.getKey());
 
         //Insert the object data in Firebase
-        mRef.setValue(r);
+        mRef.setValue(this);
     }
 }

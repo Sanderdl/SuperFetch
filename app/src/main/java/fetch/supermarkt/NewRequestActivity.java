@@ -1,8 +1,11 @@
 package fetch.supermarkt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import fetch.supermarkt.model.Request;
 
 /**
  * Created by sande on 31/03/2017.
@@ -32,6 +35,9 @@ public class NewRequestActivity extends BaseActivity {
     }
 
     private void addProduct() {
-
+        Request r = new Request(5,20.50,3.22,"Fontys jonguh","Ruud","Jumbo");
+        r.addRequestToFirebase();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

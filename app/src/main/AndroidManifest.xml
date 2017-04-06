@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fetch.supermarkt">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +12,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +23,14 @@
         <activity
             android:name=".GroceriesActivity"
             android:label="@string/grocery_list"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".NewRequestActivity"
             android:label="@string/new_order"
-            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleInstance">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

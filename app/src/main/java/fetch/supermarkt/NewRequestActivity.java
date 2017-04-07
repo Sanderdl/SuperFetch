@@ -152,4 +152,10 @@ public class NewRequestActivity extends BaseActivity {
 
         return value;
     }
+
+    public void updateProductList(Product product){
+        productList.remove(product);
+        ListAdapter productAdapter = new ProductAdapter(this, R.layout.add_product_item, productList);
+        product_list.setAdapter(productAdapter);
+    }
 }

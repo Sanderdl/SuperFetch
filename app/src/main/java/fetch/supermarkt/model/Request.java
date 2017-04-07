@@ -70,7 +70,13 @@ public class Request {
         return products;
     }
 
+    public String getDelivererName() {
+        return delivererName;
+    }
 
+    public void setDelivererName(String delivererName) {
+        this.delivererName = delivererName;
+    }
 
     public void setProducts(List<Product> products) {
         this.products = products;

@@ -32,6 +32,8 @@ public class FirebaseDB {
 
     private final List<Product> productList = new ArrayList<>();
 
+    private final List<Request> yourJobs = new ArrayList<>();
+
     private FirebaseDB(){
 
         productList.add(new Product("Ham-kaas Croissant",0.80));
@@ -43,19 +45,32 @@ public class FirebaseDB {
         mRef.orderByKey().addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                requestList.add(dataSnapshot.getValue(Request.class));
-                notifyUpdater("main");
+                Request request = dataSnapshot.getValue(Request.class);
+                if (request.getDelivererName()== null) {
+                    requestList.add(request);
+                    notifyUpdater("main");
+                }else {
+                    yourJobs.add(request);
+                }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 Request request = dataSnapshot.getValue(Request.class);
-                int index = requestList.lastIndexOf(request);
-                if (index > -1) {
+
+                int index = requestList.indexOf();
+                if (request.getDelivererName()== null) {
+                    if (index > -1) {
+                        requestList.remove(request);
+                        requestList.add(index, request);
+                    }
+                    notifyUpdater("main");
+                }else{
+                    yourJobs.add(request);
+                    request.setDelivererName(null);
                     requestList.remove(request);
-                    requestList.add(index, request);
+                    notifyUpdater("main");
                 }
-                notifyUpdater("main");
             }
 
             @Override
@@ -86,6 +101,14 @@ public class FirebaseDB {
 
     public List<Product> getProductList() {
         return productList;
+    }
+
+    public List<Request> getYourJobs() {
+        return yourJobs;
+    }
+
+    public void pickupRequest(Request request){
+        mRef.child(request.getRequestId()).setValue(request);
     }
 
     private void notifyUpdater(String name ){

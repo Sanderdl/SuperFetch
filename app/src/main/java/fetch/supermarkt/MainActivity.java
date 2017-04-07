@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ public class MainActivity extends BaseActivity implements IUpdatable {
     private TextView tvWorth;
     private TextView tvEarnings;
 
+    private Button fetchRequest;
+
     private ListView requestList;
     private List<Request> allRequests;
     private List<Request> checkedRequests;
@@ -38,6 +41,8 @@ public class MainActivity extends BaseActivity implements IUpdatable {
         tvWorth = (TextView) findViewById(R.id.val_worth);
         tvEarnings = (TextView) findViewById(R.id.val_earnings);
 
+        fetchRequest = (Button) findViewById(R.id.btn_fetch);
+
         allRequests = new ArrayList<>();
         checkedRequests = new ArrayList<>();
 
@@ -52,6 +57,13 @@ public class MainActivity extends BaseActivity implements IUpdatable {
             @Override
             public void onClick(View view) {
                 goToAddRequest();
+            }
+        });
+
+        fetchRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fetchRequests();
             }
         });
 
@@ -99,5 +111,12 @@ public class MainActivity extends BaseActivity implements IUpdatable {
         allRequests = FirebaseDB.instance.getRequestList();
         ListAdapter listAdapter = new RequestListAdapter(this, R.layout.a_request_list_item, allRequests);
         requestList.setAdapter(listAdapter);
+    }
+
+    private void fetchRequests(){
+        for(Request r : checkedRequests){
+            r.setDelivererName(loginActivity.applicationUser);
+            FirebaseDB.instance.pickupRequest(r);
+        }
     }
 }

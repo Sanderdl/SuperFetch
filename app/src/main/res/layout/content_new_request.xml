@@ -42,23 +42,10 @@
                     android:ems="10"
                     android:hint="@string/delivery_location"
                     android:inputType="text" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            style="@style/CardStyle"
-            android:layout_height="wrap_content"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/activity_top_margin"
-                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/delivery_fee"
                     android:textColor="@color/midgray"
@@ -86,21 +73,8 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/CardStyle"
-            android:layout_height="wrap_content"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/activity_top_margin"
-                android:orientation="vertical">
-
                 <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/select_store"
@@ -108,27 +82,14 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/input_store"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/CardStyle"
-            android:layout_height="wrap_content"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/activity_top_margin"
-                android:orientation="vertical">
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/add_product"
                     android:textColor="@color/midgray"
@@ -136,7 +97,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <EditText
@@ -158,11 +119,13 @@
                 </LinearLayout>
 
                 <ListView
+                    android:id="@+id/proudct_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
+
     </LinearLayout>
 
     <LinearLayout

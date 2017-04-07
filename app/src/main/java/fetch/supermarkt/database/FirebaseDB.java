@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fetch.supermarkt.model.Product;
 import fetch.supermarkt.model.Request;
 
 /**
@@ -29,7 +30,14 @@ public class FirebaseDB {
     private final Map<String,IUpdatable> contextMap = new HashMap<>();
     private final List<Request> requestList = new ArrayList<>();
 
+    private final List<Product> productList = new ArrayList<>();
+
     private FirebaseDB(){
+
+        productList.add(new Product("Ham-kaas Croissant",0.80));
+        productList.add(new Product("Cola",1.20));
+        productList.add(new Product("Frikandel broodje",1.50));
+
         database = FirebaseDatabase.getInstance();
         mRef = database.getReference().child("requests");
         mRef.orderByKey().addChildEventListener(new ChildEventListener() {
@@ -76,8 +84,13 @@ public class FirebaseDB {
         contextMap.put(name,toUpdate);
     }
 
+    public List<Product> getProductList() {
+        return productList;
+    }
+
     private void notifyUpdater(String name ){
         IUpdatable updatable = contextMap.get(name);
         updatable.update();
     }
+
 }

@@ -3,7 +3,7 @@ package fetch.supermarkt.model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sande on 30/03/2017.
@@ -21,7 +21,7 @@ public class Request {
     private boolean atSupermarket;
     private boolean orderReceived;
     private boolean orderDelivered;
-    private ArrayList<Product> products;
+    private List<Product> products;
 
     public Request(){}
 
@@ -64,6 +64,17 @@ public class Request {
 
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+        this.productCount = products.size();
     }
 
     public void addRequestToFirebase() {

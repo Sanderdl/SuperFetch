@@ -22,6 +22,7 @@ public class Request {
     private boolean orderReceived;
     private boolean orderDelivered;
     private List<Product> products;
+    private int imageId;
 
     public Request(){}
 
@@ -81,6 +82,14 @@ public class Request {
     public void setProducts(List<Product> products) {
         this.products = products;
         this.productCount = products.size();
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
     public void addRequestToFirebase() {

@@ -130,6 +130,8 @@ public class NewRequestActivity extends BaseActivity {
         Request r = new Request(5, total, fee, input_location.getText().toString()
                 , loginActivity.applicationUser, input_store.getSelectedItem().toString());
         r.setProducts(productList);
+
+        r.setImageId(getStoreImage(input_store.getSelectedItem().toString()));
         r.addRequestToFirebase();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -157,5 +159,18 @@ public class NewRequestActivity extends BaseActivity {
         productList.remove(product);
         ListAdapter productAdapter = new ProductAdapter(this, R.layout.add_product_item, productList);
         product_list.setAdapter(productAdapter);
+    }
+
+    private int getStoreImage(String name){
+
+        if (name.equals("Albert Heijn")){
+            return R.mipmap.albertheijn;
+        }
+
+        if (name.equals("Lidl")){
+            return R.mipmap.lidl;
+        }
+
+        return R.mipmap.albertheijn;
     }
 }

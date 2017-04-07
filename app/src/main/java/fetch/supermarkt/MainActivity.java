@@ -115,6 +115,7 @@ public class MainActivity extends BaseActivity implements IUpdatable {
 
     private void fetchRequests(){
         for(Request r : checkedRequests){
+            removeCheckedRequest(r);
             r.setDelivererName(loginActivity.applicationUser);
             FirebaseDB.instance.pickupRequest(r);
         }

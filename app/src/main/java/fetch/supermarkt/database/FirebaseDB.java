@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fetch.supermarkt.loginActivity;
 import fetch.supermarkt.model.Product;
 import fetch.supermarkt.model.Request;
 
@@ -49,7 +50,7 @@ public class FirebaseDB {
                 if (request.getDelivererName()== null) {
                     requestList.put(request.getRequestId(),request);
                     notifyUpdater("main");
-                }else {
+                }else if (request.getDelivererName().equals(loginActivity.applicationUser)){
                     yourJobs.add(request);
                 }
             }
@@ -58,14 +59,14 @@ public class FirebaseDB {
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 Request request = dataSnapshot.getValue(Request.class);
 
+                requestList.remove(request.getRequestId());
+
                 if (request.getDelivererName()== null) {
                     requestList.put(request.getRequestId(),request);
-                    notifyUpdater("main");
-                }else{
+                }else if (request.getDelivererName().equals(loginActivity.applicationUser)){
                     yourJobs.add(request);
-                    requestList.remove(request.getRequestId());
-                    notifyUpdater("main");
                 }
+                notifyUpdater("main");
             }
 
             @Override

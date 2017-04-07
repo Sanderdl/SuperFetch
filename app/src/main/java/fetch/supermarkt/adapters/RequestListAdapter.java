@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -47,6 +48,9 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
             TextView earnings = (TextView)v.findViewById(R.id.val_earnings2);
             TextView userName = (TextView)v.findViewById(R.id.txt_userName);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
+
+            ImageView imgstore = (ImageView) v.findViewById(R.id.img_store);
+            imgstore.setImageResource(r.getImageId());
 
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
 

@@ -128,7 +128,7 @@ public class NewRequestActivity extends BaseActivity {
 
 
         Request r = new Request(5, total, fee, input_location.getText().toString()
-                , "Sander", input_store.getSelectedItem().toString());
+                , LoginActivity.applicationUser, input_store.getSelectedItem().toString());
         r.setProducts(productList);
         r.addRequestToFirebase();
         Intent intent = new Intent(this, MainActivity.class);

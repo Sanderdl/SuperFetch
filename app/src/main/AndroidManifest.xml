@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".loginActivity"
             android:label="@string/grocery_list"
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar">

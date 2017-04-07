@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Supermarkt Fetch</string>
 
+    <string name="user_name">Username</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -24,4 +26,5 @@
     <string name="delivery_location">Delivery Location</string>
     <string name="select_store">Select Store</string>
     <string name="add_product">Add product</string>
+    <string name="usernameInPreferences">username</string>
 </resources>

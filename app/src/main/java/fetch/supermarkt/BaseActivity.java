@@ -38,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        txt_username = (TextView) findViewById(R.id.txt_username);
+
     }
 
     @Override
@@ -55,6 +55,8 @@ public abstract class BaseActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        txt_username = (TextView) findViewById(R.id.txt_username);
+        txt_username.setText(loginActivity.applicationUser);
         return true;
     }
 

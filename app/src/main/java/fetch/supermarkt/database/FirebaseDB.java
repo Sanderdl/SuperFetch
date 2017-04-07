@@ -28,7 +28,7 @@ public class FirebaseDB {
     private final DatabaseReference mRef;
 
     private final Map<String,IUpdatable> contextMap = new HashMap<>();
-    private final List<Request> requestList = new ArrayList<>();
+    private final Map<String, Request> requestList = new HashMap();
 
     private final List<Product> productList = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class FirebaseDB {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Request request = dataSnapshot.getValue(Request.class);
                 if (request.getDelivererName()== null) {
-                    requestList.add(request);
+                    requestList.put(request.getRequestId(),request);
                     notifyUpdater("main");
                 }else {
                     yourJobs.add(request);
@@ -58,17 +58,12 @@ public class FirebaseDB {
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 Request request = dataSnapshot.getValue(Request.class);
 
-                int index = requestList.indexOf();
                 if (request.getDelivererName()== null) {
-                    if (index > -1) {
-                        requestList.remove(request);
-                        requestList.add(index, request);
-                    }
+                    requestList.put(request.getRequestId(),request);
                     notifyUpdater("main");
                 }else{
                     yourJobs.add(request);
-                    request.setDelivererName(null);
-                    requestList.remove(request);
+                    requestList.remove(request.getRequestId());
                     notifyUpdater("main");
                 }
             }
@@ -91,8 +86,13 @@ public class FirebaseDB {
         });
     }
 
-    public List<Request> getRequestList() {
-        return requestList;
+    public List<Request> getRequestList()
+    {
+        List<Request> temp = new ArrayList<>();
+        for(Map.Entry<String, Request> r : requestList.entrySet()){
+            temp.add(r.getValue());
+        }
+        return temp;
     }
 
     public void registerUpdatable(String name,IUpdatable toUpdate){

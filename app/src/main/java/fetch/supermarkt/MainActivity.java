@@ -33,6 +33,8 @@ public class MainActivity extends BaseActivity implements IUpdatable {
     private double productsWorth = 0.00;
     private double earnings = 0.00;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,10 @@ public class MainActivity extends BaseActivity implements IUpdatable {
                 fetchRequests();
             }
         });
+
+
+
+
 
     }
 
@@ -120,4 +126,5 @@ public class MainActivity extends BaseActivity implements IUpdatable {
             FirebaseDB.instance.pickupRequest(r);
         }
     }
+
 }

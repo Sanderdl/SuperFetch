@@ -3,7 +3,7 @@
     package="fetch.supermarkt">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +38,18 @@
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".GeofenceActivity"
+            android:label="@string/geofence"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
+
+        <service
+            android:name=".GeofenceService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
+
 
 </manifest>

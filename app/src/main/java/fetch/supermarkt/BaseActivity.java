@@ -91,6 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_add_order) {
             intent = new Intent(this,NewRequestActivity.class);
+        } else if (id == R.id.nav_geofence) {
+            intent = new Intent(this,GeofenceActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

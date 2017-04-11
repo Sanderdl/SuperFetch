@@ -27,4 +27,5 @@
     <string name="select_store">Select Store</string>
     <string name="add_product">Add product</string>
     <string name="usernameInPreferences">username</string>
+    <string name="geofence">Geofence</string>
 </resources>

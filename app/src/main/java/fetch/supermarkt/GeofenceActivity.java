@@ -44,7 +44,7 @@ public class GeofenceActivity extends FragmentActivity implements OnConnectionFa
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.geofence);
+        setContentView(R.layout.activity_geofence);
 
         Log.d(TAG, "Entering onCreate method");
 
@@ -143,7 +143,7 @@ public class GeofenceActivity extends FragmentActivity implements OnConnectionFa
 
         try {
             Geofence geofence = new Geofence.Builder()
-                    //Link request id from geofence to request id from supermarket request (?)
+                    //Link request id from activity_geofence to request id from supermarket request (?)
                     .setRequestId(GEOFENCE_ID)
                     .setCircularRegion(51.1472505, 5.8918397, 400)
                     .setExpirationDuration(Geofence.NEVER_EXPIRE)
@@ -167,9 +167,9 @@ public class GeofenceActivity extends FragmentActivity implements OnConnectionFa
                             @Override
                             public void onResult(Status status) {
                                 if (status.isSuccess()) {
-                                    Log.d(TAG, "Succesfully added geofence");
+                                    Log.d(TAG, "Succesfully added activity_geofence");
                                 } else {
-                                    Log.d(TAG, "Failed to add geofence " + status.getStatus());
+                                    Log.d(TAG, "Failed to add activity_geofence " + status.getStatus());
                                 }
                             }
                         });

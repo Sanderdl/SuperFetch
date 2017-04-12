@@ -31,9 +31,9 @@ public class GeofenceService extends IntentService{
             String requestId = geofence.getRequestId();
 
             if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-                Log.d(TAG, "Entering geofence - " + requestId);
+                Log.d(TAG, "Entering activity_geofence - " + requestId);
             } else if (transition == Geofence.GEOFENCE_TRANSITION_EXIT) {
-                Log.d(TAG, "Exiting geofence - " + requestId);
+                Log.d(TAG, "Exiting activity_geofence - " + requestId);
             }
         }
 

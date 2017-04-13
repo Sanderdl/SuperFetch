@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <android.support.v7.widget.CardView
         style="@style/CardStyle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardElevation="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -28,13 +29,13 @@
 
             <LinearLayout
                 android:layout_width="0px"
-                android:layout_height="match_parent"
-                android:layout_weight="7.55"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="1">
 
                     <LinearLayout
@@ -71,7 +72,7 @@
                         android:background="@color/midgray" />
 
                     <TextView
-                        android:id="@+id/eta"
+                        android:id="@+id/product_worth2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/hr_bar2"
@@ -82,8 +83,16 @@
                         android:id="@+id/at_supermarket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/eta"
+                        android:layout_below="@id/product_worth2"
                         android:text="@string/at_supermarket"
+                        android:textColor="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/dropoff_place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/at_supermarket"
+                        android:text="@string/product_dropoff"
                         android:textColor="@color/midgray" />
 
                     <TextView
@@ -97,7 +106,7 @@
                         android:textColor="@color/midgray" />
 
                     <TextView
-                        android:id="@+id/location_value"
+                        android:id="@+id/at_supermarket_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -106,33 +115,25 @@
                         android:textColor="@color/midgray" />
 
                     <TextView
-                        android:id="@+id/dropoff_value"
+                        android:id="@+id/dropoff_place_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@id/location_value"
+                        android:layout_below="@id/at_supermarket_value"
                         android:text="@string/euro"
                         android:textColor="@color/midgray" />
 
-                    <TextView
-                        android:id="@+id/product_dropoff_place"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/at_supermarket"
-                        android:text="@string/product_dropoff"
-                        android:textColor="@color/midgray" />
 
                     <ListView
                         android:id="@+id/listview_products"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/product_dropoff_place" />
+                        android:layout_height="50dp"
+                        android:layout_below="@id/dropoff_place" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_below="@id/listview_products"
+                        android:layout_below="@+id/listview_products"
                         android:orientation="horizontal">
 
                         <TextView
@@ -181,4 +182,5 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+
 </LinearLayout>

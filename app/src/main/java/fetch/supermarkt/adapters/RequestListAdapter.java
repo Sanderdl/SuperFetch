@@ -45,7 +45,7 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
         if (r != null) {
             TextView count = (TextView)v.findViewById(R.id.txt_count);
             TextView worth = (TextView)v.findViewById(R.id.eta_value);
-            TextView earnings = (TextView)v.findViewById(R.id.val_earnings2);
+            TextView earnings = (TextView)v.findViewById(R.id.at_supermarket_value);
             TextView userName = (TextView)v.findViewById(R.id.txt_userName);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
 

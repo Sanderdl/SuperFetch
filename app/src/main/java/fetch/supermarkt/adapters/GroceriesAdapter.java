@@ -43,9 +43,9 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
 
         if (r != null) {
             TextView count = (TextView)v.findViewById(R.id.txt_count);
-            TextView worth = (TextView)v.findViewById(R.id.val_worth2);
-            TextView earnings = (TextView)v.findViewById(R.id.val_earnings2);
-            TextView userName = (TextView)v.findViewById(R.id.txt_userName);
+            TextView eta = (TextView)v.findViewById(R.id.eta_value);
+            TextView supermarketStatus = (TextView)v.findViewById(R.id.at_supermarket);
+            TextView dropoffPlace = (TextView)v.findViewById(R.id.dropoff_place);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
 
             ImageView imgstore = (ImageView) v.findViewById(R.id.img_store);
@@ -56,10 +56,11 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
             String strWorth = formatter.format(r.getWorth());
             String strEarnings = formatter.format(r.getDeliveryFee());
 
+            //Todo:Fix values to show stuff
             count.setText(String.valueOf(r.getProductCount()));
-            worth.setText(strWorth);
-            earnings.setText(strEarnings);
-            userName.setText(r.getRequesterName());
+            eta.setText(strWorth);
+            supermarketStatus.setText(strEarnings);
+            dropoffPlace.setText(r.getRequesterName());
 
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

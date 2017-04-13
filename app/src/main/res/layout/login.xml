@@ -7,6 +7,7 @@
     android:layout_height="fill_parent"
     android:background="@mipmap/login_background"
     android:orientation="horizontal"
+    android:padding="20dp"
     android:scaleType="centerCrop"
     android:weightSum="1">
 
@@ -26,6 +27,13 @@
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_logo_no_background"
+            />
 
         <TextView
             android:id="@+id/textView5"
@@ -48,6 +56,7 @@
             android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/colorPrimaryDark"
             android:text="Login"
             android:textColor="@color/white" />

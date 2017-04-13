@@ -145,7 +145,7 @@ public class GeofenceActivity extends FragmentActivity implements OnConnectionFa
             Geofence geofence = new Geofence.Builder()
                     //Link request id from activity_geofence to request id from supermarket request (?)
                     .setRequestId(GEOFENCE_ID)
-                    .setCircularRegion(51.1472505, 5.8918397, 400)
+                    .setCircularRegion(51.451184, 5.471967, 200)
                     .setExpirationDuration(Geofence.NEVER_EXPIRE)
                     .setNotificationResponsiveness(1000)
                     .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_EXIT)

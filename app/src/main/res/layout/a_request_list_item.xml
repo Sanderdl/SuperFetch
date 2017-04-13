@@ -79,7 +79,7 @@
                         android:textColor="@color/midgray" />
 
                     <TextView
-                        android:id="@+id/earnings2"
+                        android:id="@+id/at_supermarket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/product_worth2"
@@ -87,7 +87,7 @@
                         android:textColor="@color/midgray" />
 
                     <TextView
-                        android:id="@+id/val_worth2"
+                        android:id="@+id/eta_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -101,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@id/val_worth2"
+                        android:layout_below="@id/eta_value"
                         android:text="@string/euro"
                         android:textColor="@color/midgray" />
 

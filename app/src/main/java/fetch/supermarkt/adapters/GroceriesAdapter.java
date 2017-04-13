@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.List;
 
-import fetch.supermarkt.MainActivity;
+import fetch.supermarkt.GroceriesActivity;
 import fetch.supermarkt.R;
 import fetch.supermarkt.model.Request;
 
@@ -65,11 +65,11 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if(mContext instanceof MainActivity){
+                    if(mContext instanceof GroceriesActivity){
                         if (isChecked)
-                            ((MainActivity)mContext).addCheckedRequest(position);
+                            ((GroceriesActivity)mContext).addCheckedRequest(position);
                         else
-                            ((MainActivity)mContext).removeCheckedRequest(r);
+                            ((GroceriesActivity)mContext).removeCheckedRequest(r);
                     }
                 }
             });

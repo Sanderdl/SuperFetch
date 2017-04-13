@@ -46,7 +46,6 @@ public class loginActivity extends Activity {
             }
         });
 
-        deleteSharedPreferences();
         checkIfUsernameIsSet();
     }
 

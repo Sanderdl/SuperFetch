@@ -79,8 +79,13 @@ public class FirebaseDB {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                requestList.remove(dataSnapshot.getValue(Request.class));
+                String request = dataSnapshot.getValue(Request.class).getRequestId();
+                requestList.remove(request);
+                yourJobs.remove(request);
+                yourRequests.remove(request);
+
                 notifyUpdater("main");
+                notifyUpdater("groceries");
             }
 
             @Override
@@ -135,6 +140,10 @@ public class FirebaseDB {
     private void notifyUpdater(String name ){
         IUpdatable updatable = contextMap.get(name);
         updatable.update();
+    }
+
+    public void completeRequest(Request r){
+        mRef.child(r.getRequestId()).removeValue();
     }
 
 }

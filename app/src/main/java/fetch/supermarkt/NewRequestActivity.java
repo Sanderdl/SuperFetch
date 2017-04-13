@@ -3,6 +3,8 @@ package fetch.supermarkt;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -82,6 +84,23 @@ public class NewRequestActivity extends BaseActivity {
             }
         });
 
+        input_fee.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                calculateTotal();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                calculateTotal();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculateTotal();
+            }
+        });
+
         calculateTotal();
     }
 
@@ -155,19 +174,19 @@ public class NewRequestActivity extends BaseActivity {
         return value;
     }
 
-    public void updateProductList(Product product){
+    public void updateProductList(Product product) {
         productList.remove(product);
         ListAdapter productAdapter = new ProductAdapter(this, R.layout.add_product_item, productList);
         product_list.setAdapter(productAdapter);
     }
 
-    private int getStoreImage(String name){
+    private int getStoreImage(String name) {
 
-        if (name.equals("Albert Heijn")){
+        if (name.equals("Albert Heijn")) {
             return R.mipmap.albertheijn;
         }
 
-        if (name.equals("Lidl")){
+        if (name.equals("Lidl")) {
             return R.mipmap.lidl;
         }
 

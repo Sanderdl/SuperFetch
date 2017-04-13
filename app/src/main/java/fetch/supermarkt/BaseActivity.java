@@ -88,7 +88,7 @@ public abstract class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_groceries) {
             intent = new Intent(this,GroceriesActivity.class);
         } else if (id == R.id.nav_orders) {
-
+            intent = new Intent(this,RequestsActivity.class);
         } else if (id == R.id.nav_add_order) {
             intent = new Intent(this,NewRequestActivity.class);
         } else if (id == R.id.nav_geofence) {

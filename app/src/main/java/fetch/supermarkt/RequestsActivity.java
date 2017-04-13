@@ -9,16 +9,16 @@ import fetch.supermarkt.database.FirebaseDB;
 import fetch.supermarkt.database.IUpdatable;
 
 /**
- * Created by sande on 24/03/2017.
+ * Created by sande on 12/04/2017.
  */
 
-public class GroceriesActivity extends BaseActivity implements IUpdatable {
+public class RequestsActivity extends BaseActivity implements IUpdatable{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FirebaseDB.instance.registerUpdatable("groceries",this);
+        FirebaseDB.instance.registerUpdatable("requests",this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class GroceriesActivity extends BaseActivity implements IUpdatable {
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.activity_groceries;
+        return R.layout.activity_requests;
     }
 
     @Override

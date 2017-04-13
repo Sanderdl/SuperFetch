@@ -39,6 +39,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
+            android:name=".RequestsActivity"
+            android:label="@string/order_list"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
             android:name=".GeofenceActivity"
             android:label="@string/geofence"
             android:launchMode="singleInstance"

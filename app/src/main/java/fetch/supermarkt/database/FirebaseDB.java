@@ -33,7 +33,8 @@ public class FirebaseDB {
 
     private final List<Product> productList = new ArrayList<>();
 
-    private final List<Request> yourJobs = new ArrayList<>();
+    private final Map<String, Request> yourJobs = new HashMap();
+    private final Map<String, Request> yourRequests = new HashMap();
 
     private FirebaseDB(){
 
@@ -51,7 +52,12 @@ public class FirebaseDB {
                     requestList.put(request.getRequestId(),request);
                     notifyUpdater("main");
                 }else if (request.getDelivererName().equals(loginActivity.applicationUser)){
-                    yourJobs.add(request);
+                    yourJobs.put(request.getRequestId(), request);
+                    if (contextMap.containsKey("groceries"))
+                        notifyUpdater("groceries");
+                }
+                if(request.getRequesterName().equals(loginActivity.applicationUser)){
+                    yourRequests.put(request.getRequestId(), request);
                 }
             }
 
@@ -64,7 +70,9 @@ public class FirebaseDB {
                 if (request.getDelivererName()== null) {
                     requestList.put(request.getRequestId(),request);
                 }else if (request.getDelivererName().equals(loginActivity.applicationUser)){
-                    yourJobs.add(request);
+                    yourJobs.put(request.getRequestId(), request);
+                    if (contextMap.containsKey("groceries"))
+                        notifyUpdater("groceries");
                 }
                 notifyUpdater("main");
             }
@@ -104,8 +112,20 @@ public class FirebaseDB {
         return productList;
     }
 
-    public List<Request> getYourJobs() {
-        return yourJobs;
+    public List<Request> getYourJobsList() {
+        List<Request> temp = new ArrayList<>();
+        for(Map.Entry<String, Request> r : yourJobs.entrySet()){
+            temp.add(r.getValue());
+        }
+        return temp;
+    }
+
+    public List<Request> getYourRequestsList() {
+        List<Request> temp = new ArrayList<>();
+        for(Map.Entry<String, Request> r : yourRequests.entrySet()){
+            temp.add(r.getValue());
+        }
+        return temp;
     }
 
     public void pickupRequest(Request request){

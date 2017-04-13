@@ -69,10 +69,6 @@ public class MainActivity extends BaseActivity implements IUpdatable {
             }
         });
 
-
-
-
-
     }
 
     private void goToAddRequest(){

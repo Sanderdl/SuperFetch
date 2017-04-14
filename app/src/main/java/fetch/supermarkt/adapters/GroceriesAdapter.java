@@ -8,13 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import fetch.supermarkt.GroceriesActivity;
 import fetch.supermarkt.R;
+import fetch.supermarkt.model.Product;
 import fetch.supermarkt.model.Request;
 
 /**
@@ -44,23 +48,35 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
         if (r != null) {
             TextView count = (TextView)v.findViewById(R.id.txt_count);
             TextView eta = (TextView)v.findViewById(R.id.eta_value);
-            TextView supermarketStatus = (TextView)v.findViewById(R.id.at_supermarket);
-            TextView dropoffPlace = (TextView)v.findViewById(R.id.dropoff_place);
+            TextView supermarketStatus = (TextView)v.findViewById(R.id.at_supermarket_value);
+            TextView dropoffPlace = (TextView)v.findViewById(R.id.dropoff_place_value);
+            TextView fee = (TextView)v.findViewById(R.id.earnings_value);
+            TextView worth = (TextView)v.findViewById(R.id.worth_value);
+            TextView txt_user = (TextView)v.findViewById(R.id.txt_username);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
+
+            ListView products = (ListView)v.findViewById(R.id.listview_products);
+            List<Product> allProducts = new ArrayList<>();
+            allProducts.addAll(r.getProducts());
 
             ImageView imgstore = (ImageView) v.findViewById(R.id.img_store);
             imgstore.setImageResource(r.getImageId());
+
+            txt_user.setText(r.getRequesterName());
 
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
             String strWorth = formatter.format(r.getWorth());
             String strEarnings = formatter.format(r.getDeliveryFee());
 
+            fee.setText(strEarnings);
+            worth.setText(strWorth);
+
             //Todo:Fix values to show stuff
             count.setText(String.valueOf(r.getProductCount()));
-            eta.setText(strWorth);
-            supermarketStatus.setText(strEarnings);
-            dropoffPlace.setText(r.getRequesterName());
+            eta.setText(r.getEta());
+            supermarketStatus.setText(r.getStatus());
+            dropoffPlace.setText(r.getLocation());
 
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -73,6 +89,8 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
                     }
                 }
             });
+            ListAdapter adapter = new ProductAdapter(mContext,R.layout.product_item, allProducts);
+            products.setAdapter(adapter);
         }
         return v;
     }

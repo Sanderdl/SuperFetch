@@ -40,6 +40,11 @@ public class RequestsActivity extends BaseActivity implements IUpdatable{
     }
 
     @Override
+    protected int getActivityID() {
+        return 2;
+    }
+
+    @Override
     public void update() {
 
     }

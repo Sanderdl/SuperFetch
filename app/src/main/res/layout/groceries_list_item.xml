@@ -96,6 +96,20 @@
                         android:textColor="@color/midgray" />
 
                     <TextView
+                        android:id="@+id/your_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/earnings"
+                        android:layout_below="@id/dropoff_place"/>
+
+                    <TextView
+                        android:id="@+id/product_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/product_worth"
+                        android:layout_below="@id/your_fee"/>
+
+                    <TextView
                         android:id="@+id/eta_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,12 +137,30 @@
                         android:text="@string/euro"
                         android:textColor="@color/midgray" />
 
+                    <TextView
+                        android:id="@+id/earnings_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/dropoff_place_value"
+                        android:text="@string/euro"
+                        android:textColor="@color/midgray" />
+
+                    <TextView
+                        android:id="@+id/worth_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/earnings_value"
+                        android:text="@string/euro"
+                        android:textColor="@color/midgray" />
+
 
                     <ListView
                         android:id="@+id/listview_products"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_below="@id/dropoff_place" />
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_cost" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

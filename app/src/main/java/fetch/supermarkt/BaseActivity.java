@@ -20,6 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
     private TextView txt_username;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,17 @@ public abstract class BaseActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.getMenu().getItem(getActivityID()).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        navigationView.getMenu().getItem(getActivityID()).setChecked(true);
     }
 
     @Override
@@ -83,6 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        item.setChecked(false);
+
         if (id == R.id.nav_home) {
             intent = new Intent(this,MainActivity.class);
         } else if (id == R.id.nav_groceries) {
@@ -102,6 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     protected abstract int getLayoutResourceId();
+    protected abstract int getActivityID();
 }
 
 

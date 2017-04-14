@@ -109,6 +109,11 @@ public class NewRequestActivity extends BaseActivity {
         return R.layout.activity_new_request;
     }
 
+    @Override
+    protected int getActivityID() {
+        return 3;
+    }
+
     private void addProduct() {
         Product newProduct = null;
 

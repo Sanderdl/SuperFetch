@@ -67,6 +67,11 @@ public class GroceriesActivity extends BaseActivity implements IUpdatable {
     }
 
     @Override
+    protected int getActivityID() {
+        return 1;
+    }
+
+    @Override
     public void update() {
         allJobs = FirebaseDB.instance.getYourJobsList();
         ListAdapter adapter = new GroceriesAdapter(this,R.layout.groceries_list_item,allJobs);

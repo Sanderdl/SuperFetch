@@ -29,7 +29,7 @@
     <string name="usernameInPreferences">username</string>
     <string name="geofence">Geofence</string>
     <string name="eta">Estimated arrival time</string>
-    <string name="at_supermarket">At supermarket</string>
+    <string name="at_supermarket">Status</string>
     <string name="product_dropoff">Dropoff place</string>
 
 </resources>

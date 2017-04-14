@@ -21,10 +21,12 @@ import fetch.supermarkt.model.Product;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
     private Context mContext;
+    private int mResource;
 
     public ProductAdapter(Context context, int resource, List<Product> objects) {
         super(context, resource, objects);
         mContext = context;
+        mResource = resource;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         if (v == null){
             LayoutInflater vi;
             vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.add_product_item, null);
+            v = vi.inflate(mResource, null);
         }
 
         final Product p = getItem(position);
@@ -49,14 +51,16 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             product.setText(p.getProductName());
             value.setText(formatter.format(p.getProductPrice()));
 
-            btn_delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(mContext instanceof NewRequestActivity){
-                        ((NewRequestActivity)mContext).updateProductList(p);
+            if (btn_delete != null) {
+                btn_delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mContext instanceof NewRequestActivity) {
+                            ((NewRequestActivity) mContext).updateProductList(p);
+                        }
                     }
-                }
-            });
+                });
+            }
 
         }
         return v;

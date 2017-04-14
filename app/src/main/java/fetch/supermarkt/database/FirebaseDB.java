@@ -50,7 +50,8 @@ public class FirebaseDB {
                 Request request = dataSnapshot.getValue(Request.class);
                 if (request.getDelivererName()== null) {
                     requestList.put(request.getRequestId(),request);
-                    notifyUpdater("main");
+                    if (contextMap.containsKey("main"))
+                        notifyUpdater("main");
                 }else if (request.getDelivererName().equals(loginActivity.applicationUser)){
                     yourJobs.put(request.getRequestId(), request);
                     if (contextMap.containsKey("groceries"))
@@ -74,7 +75,8 @@ public class FirebaseDB {
                     if (contextMap.containsKey("groceries"))
                         notifyUpdater("groceries");
                 }
-                notifyUpdater("main");
+                if (contextMap.containsKey("main"))
+                    notifyUpdater("main");
             }
 
             @Override
@@ -84,8 +86,10 @@ public class FirebaseDB {
                 yourJobs.remove(request);
                 yourRequests.remove(request);
 
-                notifyUpdater("main");
-                notifyUpdater("groceries");
+                if (contextMap.containsKey("main"))
+                    notifyUpdater("main");
+                if (contextMap.containsKey("groceries"))
+                    notifyUpdater("groceries");
             }
 
             @Override
@@ -134,6 +138,7 @@ public class FirebaseDB {
     }
 
     public void pickupRequest(Request request){
+        request.setStatus("Picked up");
         mRef.child(request.getRequestId()).setValue(request);
     }
 
@@ -144,6 +149,11 @@ public class FirebaseDB {
 
     public void completeRequest(Request r){
         mRef.child(r.getRequestId()).removeValue();
+    }
+
+    public void updateRequestStatus(Request r, String status){
+        r.setStatus(status);
+        mRef.child(r.getRequestId()).setValue(r);
     }
 
 }

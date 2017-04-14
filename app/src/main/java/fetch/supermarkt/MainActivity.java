@@ -148,6 +148,11 @@ public class MainActivity extends BaseActivity implements IUpdatable, GoogleApiC
         return R.layout.activity_main;
     }
 
+    @Override
+    protected int getActivityID() {
+        return 0;
+    }
+
     public void addCheckedRequest(int index){
         checkedRequests.add(allRequests.get(index));
         updateValues();
@@ -189,6 +194,7 @@ public class MainActivity extends BaseActivity implements IUpdatable, GoogleApiC
         for(Request r : checkedRequests){
             removeCheckedRequest(r);
             r.setDelivererName(loginActivity.applicationUser);
+            r.setEta();
             FirebaseDB.instance.pickupRequest(r);
         }
 

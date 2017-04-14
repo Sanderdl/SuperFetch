@@ -9,12 +9,17 @@ import com.google.android.gms.location.GeofencingEvent;
 
 import java.util.List;
 
+import fetch.supermarkt.database.FirebaseDB;
+import fetch.supermarkt.model.Request;
+
 /**
  * Created by stefg on 11/04/2017.
  */
 
 public class GeofenceService extends IntentService{
     public static final String TAG = "GeofenceService";
+
+    private List<Request> jobs;
 
     public GeofenceService() {
         super(TAG);
@@ -32,8 +37,17 @@ public class GeofenceService extends IntentService{
 
             if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
                 Log.d(TAG, "Entering activity_geofence - " + requestId);
+                jobs = FirebaseDB.instance.getYourJobsList();
+                for(Request r: jobs){
+                    FirebaseDB.instance.updateRequestStatus(r,"At the store");
+                }
+
             } else if (transition == Geofence.GEOFENCE_TRANSITION_EXIT) {
                 Log.d(TAG, "Exiting activity_geofence - " + requestId);
+                jobs = FirebaseDB.instance.getYourJobsList();
+                for(Request r: jobs){
+                    FirebaseDB.instance.updateRequestStatus(r,"On the way back");
+                }
             }
         }
 

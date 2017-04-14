@@ -3,6 +3,9 @@ package fetch.supermarkt.model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,9 +14,11 @@ import java.util.List;
 
 public class Request {
     private String requestId;
+    private String status;
     private int productCount;
     private double worth;
     private double deliveryFee;
+    private String eta;
     private String location;
     private String requesterName;
     private String store;
@@ -104,5 +109,31 @@ public class Request {
 
         //Insert the object data in Firebase
         mRef.setValue(this);
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getEta() {
+        return eta;
+    }
+
+    public void setEta() {
+        Date date = new Date();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.HOUR_OF_DAY, 1);
+        date = cal.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+        String time = sdf.format(date);
+        eta = time;
     }
 }

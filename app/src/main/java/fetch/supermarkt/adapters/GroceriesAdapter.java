@@ -52,7 +52,7 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
             TextView dropoffPlace = (TextView)v.findViewById(R.id.dropoff_place_value);
             TextView fee = (TextView)v.findViewById(R.id.earnings_value);
             TextView worth = (TextView)v.findViewById(R.id.worth_value);
-            TextView txt_user = (TextView)v.findViewById(R.id.txt_username);
+            TextView txt_user = (TextView)v.findViewById(R.id.txt_userName1);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
 
             ListView products = (ListView)v.findViewById(R.id.listview_products);

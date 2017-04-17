@@ -59,6 +59,8 @@ public class FirebaseDB {
                 }
                 if(request.getRequesterName().equals(loginActivity.applicationUser)){
                     yourRequests.put(request.getRequestId(), request);
+                    if (contextMap.containsKey("myrequest"))
+                        notifyUpdater("myrequest");
                 }
             }
 
@@ -75,6 +77,13 @@ public class FirebaseDB {
                     if (contextMap.containsKey("groceries"))
                         notifyUpdater("groceries");
                 }
+
+                if(request.getRequesterName().equals(loginActivity.applicationUser)){
+                    yourRequests.put(request.getRequestId(), request);
+                    if (contextMap.containsKey("myrequest"))
+                        notifyUpdater("myrequest");
+                }
+
                 if (contextMap.containsKey("main"))
                     notifyUpdater("main");
             }

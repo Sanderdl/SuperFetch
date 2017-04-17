@@ -47,6 +47,7 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
             TextView worth = (TextView)v.findViewById(R.id.eta_value);
             TextView earnings = (TextView)v.findViewById(R.id.at_supermarket_value);
             TextView userName = (TextView)v.findViewById(R.id.txt_userName);
+            TextView loc = (TextView)v.findViewById(R.id.txt_detailedInfo);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
 
             ImageView imgstore = (ImageView) v.findViewById(R.id.img_store);
@@ -61,6 +62,7 @@ public class RequestListAdapter extends ArrayAdapter<Request> {
             worth.setText(strWorth);
             earnings.setText(strEarnings);
             userName.setText(r.getRequesterName());
+            loc.setText(r.getLocation());
 
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

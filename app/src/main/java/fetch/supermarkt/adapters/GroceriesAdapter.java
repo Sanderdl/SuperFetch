@@ -1,6 +1,9 @@
 package fetch.supermarkt.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -55,7 +56,7 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
             TextView txt_user = (TextView)v.findViewById(R.id.txt_userName1);
             CheckBox checkBox = (CheckBox)v.findViewById(R.id.chd_fetch);
 
-            ListView products = (ListView)v.findViewById(R.id.listview_products);
+            RecyclerView products = (RecyclerView)v.findViewById(R.id.listview_products);
             List<Product> allProducts = new ArrayList<>();
             allProducts.addAll(r.getProducts());
 
@@ -72,7 +73,6 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
             fee.setText(strEarnings);
             worth.setText(strWorth);
 
-            //Todo:Fix values to show stuff
             count.setText(String.valueOf(r.getProductCount()));
             eta.setText(r.getEta());
             supermarketStatus.setText(r.getStatus());
@@ -89,7 +89,10 @@ public class GroceriesAdapter extends ArrayAdapter<Request> {
                     }
                 }
             });
-            ListAdapter adapter = new ProductAdapter(mContext,R.layout.product_item, allProducts);
+            ProductRecycleAdapter adapter = new ProductRecycleAdapter(allProducts);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext);
+            products.setLayoutManager(mLayoutManager);
+            products.setItemAnimator(new DefaultItemAnimator());
             products.setAdapter(adapter);
         }
         return v;
